@@ -40,7 +40,7 @@ def intera():
     l = listd(gui=True)
     ll = 0
     for ld in l:
-        print('[' + str(ll) + '] ', str(ld))
+        print('[' + str(ll) + '] ' + ld)
         ll += 1
     i = input("\n\t Enter device nuber to reset : ")
     try:
@@ -59,7 +59,7 @@ def intera():
 
 def cli():
     if name != 'nt' and getuid() != 0:
-        print('#' * 4, ' You must use sudo for this to work properly ',
+        print('#' * 4 + ' You must use sudo for this to work properly ' +
               '#' * 4)
     if len(argv) > 1:
         listt()
