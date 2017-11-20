@@ -5,7 +5,7 @@
   [20250980]: https://github.com/pallets/click "Click"
 
 ### Run it :
-#### `(with Python2.7) pip install requirements.txt && python run.py`
+#### `(with Python3.6) pip install requirements.txt && python run.py`
 
 ### Commands :
 #### `python run.py --help`

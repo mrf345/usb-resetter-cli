@@ -1,7 +1,7 @@
 from os import name, getuid
 from sys import argv
 import click
-from ex_functions import listd, resetit
+from .ex_functions import listd, resetit
 
 msuc = '# USB device got reset.'
 merr = '# Error: could not reset usb device'
