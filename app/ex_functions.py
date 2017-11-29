@@ -24,12 +24,11 @@ class find_class(object):
 
 
 def listd(tp=None, gui=None):
-    vl = []
-    ftp = []
+    vl, ftp = [], []
     if tp is not None:
         for ttp in tp:
-            ftp.append(usb.core.find(find_all=True,
-                                     custom_match=find_class(ttp)))
+            ftp.extend([[ad for ad in usb.core.find(
+                find_all=True, custom_match=find_class(ttp))]])
     else:
         ftp = [usb.core.find(find_all=True)]
     for f in ftp:
@@ -41,19 +40,20 @@ def listd(tp=None, gui=None):
                 except:
                     pass
                 if d is None:
-                    dl = [0, 1, 2, 3, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 19]
-                    dld = ["Unspecified", "Audio", "Network card",
-                           "Human interface", "Printer", "Mass storage",
-                           "Hub", "Network", "Smart card", "Content security",
-                           "Video device", "Audio or Video", "Billboard",
-                           "USB Type-C", "Wireless"]
+                    dld = {0: "Unspecified", 1: "Audio", 2: "Network card",
+                           3: "Human interface", 7: "Printer",
+                           8: "Mass storage", 9: "Hub", 10: "Network",
+                           11: "Smart card", 12: "Content security",
+                           13: "Video device", 15: "Audio or Video",
+                           16: "Billboard", 17: "USB Type-C",
+                           19: "Wireless"}
                     d = "Unspecified"
                     for desc in ll:
-                        for dd in dl:
+                        for dd in dld.keys():
                             if usb.util.find_descriptor(desc,
                                                         bInterfaceClass=dd
                                                         ):
-                                d = dld[dl.index(dd)]
+                                d = dld.get(dd)
                                 break
                 vl.append(
                     str(d) + "," + str(

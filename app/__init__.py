@@ -22,11 +22,9 @@ def listt(reset, list, filter):
         lid = listd(gui=True)
         if filter != 0:
             lid = listd([filter], True)
-        li = 0
         if len(lid) > 0:
-            for ll in lid:
+            for li, ll in enumerate(lid):
                 print(str(li) + ". " + str(ll))
-                li += 1
         else:
             print("# No USB devices were found")
     else:
@@ -38,11 +36,9 @@ def listt(reset, list, filter):
 
 def intera():
     l = listd(gui=True)
-    ll = 0
-    for ld in l:
+    for ll, ld in enumerate(l):
         print('[' + str(ll) + '] ' + ld)
-        ll += 1
-    i = input("\n\t Enter device nuber to reset : ")
+    i = input("\n\t Enter device number to reset : ")
     try:
         i = int(i)
         if i not in range(len(l)):
