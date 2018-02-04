@@ -12,3 +12,7 @@
 #### `python run.py --list`
 #### `python run.py --list --filter 3`
 #### `python run.py --reset 0x5986 0x55e # idVendor and idProduct`
+
+### Setup:
+> Check out the documentation for setting up the USB drivers on:
+> https://github.com/mrf345/usb-resetter
